@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="48ec2ae7b0ba4b04a76198a8a859d31b" Name="Diagram1">
+        <EntityTypeShape EntityType="RamosModel.alumno" Width="1.5" PointX="5.25" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="RamosModel.carrera" Width="1.5" PointX="3" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="RamosModel.inscripcion" Width="1.5" PointX="7.5" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="RamosModel.jornada" Width="1.5" PointX="5.25" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="RamosModel.profesor" Width="1.5" PointX="5.25" PointY="12.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="RamosModel.ramo" Width="1.5" PointX="5.25" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="RamosModel.seccion" Width="1.5" PointX="7.5" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="RamosModel.sede" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
+        <AssociationConnector Association="RamosModel.alumno_carrera_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="RamosModel.ins_alu_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="RamosModel.carrera_sede_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="RamosModel.ramo_carrera_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="RamosModel.ins_sec_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="RamosModel.seccion_jornada_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="RamosModel.seccion_profesor_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="RamosModel.seccion_ramo_fk" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

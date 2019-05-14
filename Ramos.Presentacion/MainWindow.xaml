@@ -1,0 +1,35 @@
+﻿<Window x:Class="Ramos.Presentacion.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Ramos.Presentacion"
+        mc:Ignorable="d"
+        Title="Toma de Ramos" Height="450" Width="800" ResizeMode="CanMinimize">
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="White" Offset="0"/>
+                <GradientStop Color="#FFEEE8CD" Offset="0.5"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Label x:Name="txtNombreAlumno" Content="*Nombre Alumno*" HorizontalAlignment="Left" Margin="240,20,0,0" VerticalAlignment="Top" Width="420" FontWeight="Bold"/>
+        <Label x:Name="txtRutAlumno" Content="*RUT Alumno*" HorizontalAlignment="Left" Margin="20,20,0,0" VerticalAlignment="Top" FontWeight="Bold" Width="200"/>
+        <DataGrid x:Name="dtgRamo" HorizontalAlignment="Left" Height="300" Margin="20,80,0,0" VerticalAlignment="Top" Width="200">
+            <DataGrid.Columns>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Name="btnGrid" Content="Seleccionar" Click="BtnGrid_Click"></Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button x:Name="btnFin" Content="Finalizar" HorizontalAlignment="Right" Margin="0,0,20,20" FontSize="14" Width="80" Click="BtnFin_Click" Height="40" VerticalAlignment="Bottom"/>
+        <DataGrid x:Name="dtgSeccion" HorizontalAlignment="Left" Height="300" Margin="240,80,0,0" VerticalAlignment="Top" Width="420"/>
+        <Label Content="*Sede Alumno*" HorizontalAlignment="Left" Margin="20,40,0,0" VerticalAlignment="Top" Width="200" FontWeight="Bold"/>
+        <Label Content="*Carrera Alumno*" HorizontalAlignment="Left" Margin="240,40,0,0" VerticalAlignment="Top" FontWeight="Bold" Width="420"/>
+        <Label Content="*Semestre X*" HorizontalAlignment="Left" Margin="680,20,0,0" VerticalAlignment="Top" Width="100" FontWeight="Bold"/>
+    </Grid>
+</Window>

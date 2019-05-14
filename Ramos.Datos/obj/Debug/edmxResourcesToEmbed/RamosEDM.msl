@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="RamosModelStoreContainer" CdmEntityContainer="RamosEntities">
+    <EntitySetMapping Name="alumno">
+      <EntityTypeMapping TypeName="RamosModel.alumno">
+        <MappingFragment StoreEntitySet="alumno">
+          <ScalarProperty Name="username_alum" ColumnName="username_alum" />
+          <ScalarProperty Name="password_alum" ColumnName="password_alum" />
+          <ScalarProperty Name="rut_alum" ColumnName="rut_alum" />
+          <ScalarProperty Name="pnombre_alum" ColumnName="pnombre_alum" />
+          <ScalarProperty Name="snombre_alum" ColumnName="snombre_alum" />
+          <ScalarProperty Name="papellido_alum" ColumnName="papellido_alum" />
+          <ScalarProperty Name="sapellido_alum" ColumnName="sapellido_alum" />
+          <ScalarProperty Name="tel_alum" ColumnName="tel_alum" />
+          <ScalarProperty Name="semestre_actual" ColumnName="semestre_actual" />
+          <ScalarProperty Name="id_sede" ColumnName="id_sede" />
+          <ScalarProperty Name="id_carrera" ColumnName="id_carrera" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="carrera">
+      <EntityTypeMapping TypeName="RamosModel.carrera">
+        <MappingFragment StoreEntitySet="carrera">
+          <ScalarProperty Name="id_carrera" ColumnName="id_carrera" />
+          <ScalarProperty Name="id_sede" ColumnName="id_sede" />
+          <ScalarProperty Name="nombre_carrera" ColumnName="nombre_carrera" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="inscripcion">
+      <EntityTypeMapping TypeName="RamosModel.inscripcion">
+        <MappingFragment StoreEntitySet="inscripcion">
+          <ScalarProperty Name="id_seccion" ColumnName="id_seccion" />
+          <ScalarProperty Name="id_ramo" ColumnName="id_ramo" />
+          <ScalarProperty Name="id_carrera" ColumnName="id_carrera" />
+          <ScalarProperty Name="id_sede" ColumnName="id_sede" />
+          <ScalarProperty Name="username_alum" ColumnName="username_alum" />
+          <ScalarProperty Name="fecha_inscripcion" ColumnName="fecha_inscripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="jornada">
+      <EntityTypeMapping TypeName="RamosModel.jornada">
+        <MappingFragment StoreEntitySet="jornada">
+          <ScalarProperty Name="id_jor" ColumnName="id_jor" />
+          <ScalarProperty Name="desc_jor" ColumnName="desc_jor" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="profesor">
+      <EntityTypeMapping TypeName="RamosModel.profesor">
+        <MappingFragment StoreEntitySet="profesor">
+          <ScalarProperty Name="username_prof" ColumnName="username_prof" />
+          <ScalarProperty Name="password_prof" ColumnName="password_prof" />
+          <ScalarProperty Name="rut_prof" ColumnName="rut_prof" />
+          <ScalarProperty Name="pnombre_prof" ColumnName="pnombre_prof" />
+          <ScalarProperty Name="snombre_prof" ColumnName="snombre_prof" />
+          <ScalarProperty Name="papellido_prof" ColumnName="papellido_prof" />
+          <ScalarProperty Name="sapellido_prof" ColumnName="sapellido_prof" />
+          <ScalarProperty Name="tel_prof" ColumnName="tel_prof" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ramo">
+      <EntityTypeMapping TypeName="RamosModel.ramo">
+        <MappingFragment StoreEntitySet="ramo">
+          <ScalarProperty Name="id_ramo" ColumnName="id_ramo" />
+          <ScalarProperty Name="id_carrera" ColumnName="id_carrera" />
+          <ScalarProperty Name="id_sede" ColumnName="id_sede" />
+          <ScalarProperty Name="nombre_ramo" ColumnName="nombre_ramo" />
+          <ScalarProperty Name="semestre" ColumnName="semestre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="seccion">
+      <EntityTypeMapping TypeName="RamosModel.seccion">
+        <MappingFragment StoreEntitySet="seccion">
+          <ScalarProperty Name="id_seccion" ColumnName="id_seccion" />
+          <ScalarProperty Name="id_ramo" ColumnName="id_ramo" />
+          <ScalarProperty Name="id_carrera" ColumnName="id_carrera" />
+          <ScalarProperty Name="id_sede" ColumnName="id_sede" />
+          <ScalarProperty Name="id_jor" ColumnName="id_jor" />
+          <ScalarProperty Name="username_prof" ColumnName="username_prof" />
+          <ScalarProperty Name="cupo" ColumnName="cupo" />
+          <ScalarProperty Name="dia1" ColumnName="dia1" />
+          <ScalarProperty Name="hora_entrada1" ColumnName="hora_entrada1" />
+          <ScalarProperty Name="hora_salida1" ColumnName="hora_salida1" />
+          <ScalarProperty Name="dia2" ColumnName="dia2" />
+          <ScalarProperty Name="hora_entrada2" ColumnName="hora_entrada2" />
+          <ScalarProperty Name="hora_salida2" ColumnName="hora_salida2" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sede">
+      <EntityTypeMapping TypeName="RamosModel.sede">
+        <MappingFragment StoreEntitySet="sede">
+          <ScalarProperty Name="id_sede" ColumnName="id_sede" />
+          <ScalarProperty Name="nombre_sede" ColumnName="nombre_sede" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

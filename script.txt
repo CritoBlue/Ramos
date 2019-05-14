@@ -1,0 +1,152 @@
+create database "Ramos";
+use "Ramos";
+go;
+
+CREATE TABLE alumno (
+    username_alum     NVARCHAR(20) NOT NULL,
+    password_alum     NVARCHAR(30) NOT NULL,
+    rut_alum          NVARCHAR(10) NOT NULL,
+    pnombre_alum      NVARCHAR(25) NOT NULL,
+    snombre_alum      NVARCHAR(25) NOT NULL,
+    papellido_alum    NVARCHAR(25) NOT NULL,
+    sapellido_alum    NVARCHAR(25) NOT NULL,
+    tel_alum          BIGINT NOT NULL,
+    semestre_actual   INT  NOT NULL,
+    id_sede           INT  NOT NULL,
+    id_carrera        NVARCHAR(10) NOT NULL
+);
+
+ALTER TABLE alumno ADD CONSTRAINT alumno_pk PRIMARY KEY ( username_alum );
+
+CREATE TABLE carrera (
+    id_carrera       NVARCHAR(10) NOT NULL,
+    id_sede          INT NOT NULL,
+    nombre_carrera   NVARCHAR(50) NOT NULL
+);
+
+ALTER TABLE carrera ADD CONSTRAINT carrera_pk PRIMARY KEY ( id_sede,
+                                                            id_carrera );
+
+CREATE TABLE inscripcion (
+    id_seccion          NVARCHAR(5) NOT NULL,
+    id_ramo             NVARCHAR(3) NOT NULL,
+    id_carrera          NVARCHAR(10) NOT NULL,
+    id_sede             INT NOT NULL,
+    username_alum       NVARCHAR(20) NOT NULL,
+    fecha_inscripcion   DATE NOT NULL
+);
+
+ALTER TABLE inscripcion
+    ADD CONSTRAINT inscripcion_pk PRIMARY KEY ( id_seccion,
+                                                username_alum,
+                                                id_ramo,
+                                                id_carrera,
+                                                id_sede );
+
+CREATE TABLE jornada (
+    id_jor     CHAR(1) NOT NULL,
+    desc_jor   NVARCHAR(15) NOT NULL
+);
+
+ALTER TABLE jornada ADD CONSTRAINT jornada_pk PRIMARY KEY ( id_jor );
+
+CREATE TABLE profesor (
+    username_prof    NVARCHAR(20) NOT NULL,
+    password_prof    NVARCHAR(30) NOT NULL,
+    rut_prof         NVARCHAR(10) NOT NULL,
+    pnombre_prof     NVARCHAR(25) NOT NULL,
+    snombre_prof     NVARCHAR(25) NOT NULL,
+    papellido_prof   NVARCHAR(25) NOT NULL,
+    sapellido_prof   NVARCHAR(25) NOT NULL,
+    tel_prof         BIGINT NOT NULL
+);
+
+ALTER TABLE profesor ADD CONSTRAINT profesor_pk PRIMARY KEY ( username_prof );
+
+CREATE TABLE ramo (
+    id_ramo       NVARCHAR(3) NOT NULL,
+    id_carrera    NVARCHAR(10) NOT NULL,
+    id_sede       INT NOT NULL,
+    nombre_ramo   NVARCHAR(50) NOT NULL,
+    semestre      INT NOT NULL
+);
+
+ALTER TABLE ramo
+    ADD CONSTRAINT ramo_pk PRIMARY KEY ( id_ramo,
+                                         id_carrera,
+                                         id_sede );
+
+CREATE TABLE seccion (
+    id_seccion      NVARCHAR(5) NOT NULL,
+    id_ramo         NVARCHAR(3) NOT NULL,
+    id_carrera      NVARCHAR(10) NOT NULL,
+    id_sede         INT NOT NULL,
+    id_jor          CHAR(1) NOT NULL,
+    username_prof   NVARCHAR(20) NOT NULL,
+    cupo            INT NOT NULL,
+    dia1            CHAR(2) NOT NULL,
+    hora_entrada1   NVARCHAR(5) NOT NULL,
+    hora_salida1    NVARCHAR(5) NOT NULL,
+    dia2            CHAR(2),
+    hora_entrada2   NVARCHAR(5),
+    hora_salida2    NVARCHAR(5)
+);
+
+ALTER TABLE seccion
+    ADD CONSTRAINT seccion_pk PRIMARY KEY ( id_seccion,
+                                            id_ramo,
+                                            id_carrera,
+                                            id_sede );
+
+CREATE TABLE sede (
+    id_sede       INT NOT NULL,
+    nombre_sede   NVARCHAR(50) NOT NULL
+);
+
+ALTER TABLE sede ADD CONSTRAINT sede_pk PRIMARY KEY ( id_sede );
+
+ALTER TABLE alumno
+    ADD CONSTRAINT alumno_carrera_fk FOREIGN KEY ( id_sede,
+                                                   id_carrera )
+        REFERENCES carrera ( id_sede,
+                             id_carrera );
+
+ALTER TABLE carrera
+    ADD CONSTRAINT carrera_sede_fk FOREIGN KEY ( id_sede )
+        REFERENCES sede ( id_sede );
+
+ALTER TABLE inscripcion
+    ADD CONSTRAINT ins_alu_fk FOREIGN KEY ( username_alum )
+        REFERENCES alumno ( username_alum );
+
+ALTER TABLE inscripcion
+    ADD CONSTRAINT ins_sec_fk FOREIGN KEY ( id_seccion,
+                                            id_ramo,
+                                            id_carrera,
+                                            id_sede )
+        REFERENCES seccion ( id_seccion,
+                             id_ramo,
+                             id_carrera,
+                             id_sede );
+
+ALTER TABLE ramo
+    ADD CONSTRAINT ramo_carrera_fk FOREIGN KEY ( id_sede,
+                                                 id_carrera )
+        REFERENCES carrera ( id_sede,
+                             id_carrera );
+
+ALTER TABLE seccion
+    ADD CONSTRAINT seccion_jornada_fk FOREIGN KEY ( id_jor )
+        REFERENCES jornada ( id_jor );
+
+ALTER TABLE seccion
+    ADD CONSTRAINT seccion_profesor_fk FOREIGN KEY ( username_prof )
+        REFERENCES profesor ( username_prof );
+
+ALTER TABLE seccion
+    ADD CONSTRAINT seccion_ramo_fk FOREIGN KEY ( id_ramo,
+                                                 id_carrera,
+                                                 id_sede )
+        REFERENCES ramo ( id_ramo,
+                          id_carrera,
+                          id_sede );

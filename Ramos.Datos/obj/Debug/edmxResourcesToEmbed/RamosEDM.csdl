@@ -1,0 +1,271 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="RamosModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="alumno">
+    <Key>
+      <PropertyRef Name="username_alum" />
+    </Key>
+    <Property Name="username_alum" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="password_alum" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="rut_alum" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="pnombre_alum" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="snombre_alum" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="papellido_alum" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="sapellido_alum" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="tel_alum" Type="Int64" Nullable="false" />
+    <Property Name="semestre_actual" Type="Int32" Nullable="false" />
+    <Property Name="id_sede" Type="Int32" Nullable="false" />
+    <Property Name="id_carrera" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="carrera" Relationship="Self.alumno_carrera_fk" FromRole="alumno" ToRole="carrera" />
+    <NavigationProperty Name="inscripcion" Relationship="Self.ins_alu_fk" FromRole="alumno" ToRole="inscripcion" />
+  </EntityType>
+  <EntityType Name="carrera">
+    <Key>
+      <PropertyRef Name="id_carrera" />
+      <PropertyRef Name="id_sede" />
+    </Key>
+    <Property Name="id_carrera" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="id_sede" Type="Int32" Nullable="false" />
+    <Property Name="nombre_carrera" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="alumno" Relationship="Self.alumno_carrera_fk" FromRole="carrera" ToRole="alumno" />
+    <NavigationProperty Name="sede" Relationship="Self.carrera_sede_fk" FromRole="carrera" ToRole="sede" />
+    <NavigationProperty Name="ramo" Relationship="Self.ramo_carrera_fk" FromRole="carrera" ToRole="ramo" />
+  </EntityType>
+  <EntityType Name="inscripcion">
+    <Key>
+      <PropertyRef Name="id_seccion" />
+      <PropertyRef Name="id_ramo" />
+      <PropertyRef Name="id_carrera" />
+      <PropertyRef Name="id_sede" />
+      <PropertyRef Name="username_alum" />
+    </Key>
+    <Property Name="id_seccion" Type="String" MaxLength="5" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="id_ramo" Type="String" MaxLength="3" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="id_carrera" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="id_sede" Type="Int32" Nullable="false" />
+    <Property Name="username_alum" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="fecha_inscripcion" Type="DateTime" Nullable="false" Precision="0" />
+    <NavigationProperty Name="alumno" Relationship="Self.ins_alu_fk" FromRole="inscripcion" ToRole="alumno" />
+    <NavigationProperty Name="seccion" Relationship="Self.ins_sec_fk" FromRole="inscripcion" ToRole="seccion" />
+  </EntityType>
+  <EntityType Name="jornada">
+    <Key>
+      <PropertyRef Name="id_jor" />
+    </Key>
+    <Property Name="id_jor" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="desc_jor" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="seccion" Relationship="Self.seccion_jornada_fk" FromRole="jornada" ToRole="seccion" />
+  </EntityType>
+  <EntityType Name="profesor">
+    <Key>
+      <PropertyRef Name="username_prof" />
+    </Key>
+    <Property Name="username_prof" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="password_prof" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="rut_prof" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="pnombre_prof" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="snombre_prof" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="papellido_prof" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="sapellido_prof" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="tel_prof" Type="Int64" Nullable="false" />
+    <NavigationProperty Name="seccion" Relationship="Self.seccion_profesor_fk" FromRole="profesor" ToRole="seccion" />
+  </EntityType>
+  <EntityType Name="ramo">
+    <Key>
+      <PropertyRef Name="id_ramo" />
+      <PropertyRef Name="id_carrera" />
+      <PropertyRef Name="id_sede" />
+    </Key>
+    <Property Name="id_ramo" Type="String" MaxLength="3" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="id_carrera" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="id_sede" Type="Int32" Nullable="false" />
+    <Property Name="nombre_ramo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="semestre" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="carrera" Relationship="Self.ramo_carrera_fk" FromRole="ramo" ToRole="carrera" />
+    <NavigationProperty Name="seccion" Relationship="Self.seccion_ramo_fk" FromRole="ramo" ToRole="seccion" />
+  </EntityType>
+  <EntityType Name="seccion">
+    <Key>
+      <PropertyRef Name="id_seccion" />
+      <PropertyRef Name="id_ramo" />
+      <PropertyRef Name="id_carrera" />
+      <PropertyRef Name="id_sede" />
+    </Key>
+    <Property Name="id_seccion" Type="String" MaxLength="5" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="id_ramo" Type="String" MaxLength="3" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="id_carrera" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="id_sede" Type="Int32" Nullable="false" />
+    <Property Name="id_jor" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="username_prof" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="cupo" Type="Int32" Nullable="false" />
+    <Property Name="dia1" Type="String" MaxLength="2" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="hora_entrada1" Type="String" MaxLength="5" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="hora_salida1" Type="String" MaxLength="5" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="dia2" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+    <Property Name="hora_entrada2" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Name="hora_salida2" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="inscripcion" Relationship="Self.ins_sec_fk" FromRole="seccion" ToRole="inscripcion" />
+    <NavigationProperty Name="jornada" Relationship="Self.seccion_jornada_fk" FromRole="seccion" ToRole="jornada" />
+    <NavigationProperty Name="profesor" Relationship="Self.seccion_profesor_fk" FromRole="seccion" ToRole="profesor" />
+    <NavigationProperty Name="ramo" Relationship="Self.seccion_ramo_fk" FromRole="seccion" ToRole="ramo" />
+  </EntityType>
+  <EntityType Name="sede">
+    <Key>
+      <PropertyRef Name="id_sede" />
+    </Key>
+    <Property Name="id_sede" Type="Int32" Nullable="false" />
+    <Property Name="nombre_sede" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="carrera" Relationship="Self.carrera_sede_fk" FromRole="sede" ToRole="carrera" />
+  </EntityType>
+  <Association Name="alumno_carrera_fk">
+    <End Role="carrera" Type="Self.carrera" Multiplicity="1" />
+    <End Role="alumno" Type="Self.alumno" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="carrera">
+        <PropertyRef Name="id_sede" />
+        <PropertyRef Name="id_carrera" />
+      </Principal>
+      <Dependent Role="alumno">
+        <PropertyRef Name="id_sede" />
+        <PropertyRef Name="id_carrera" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ins_alu_fk">
+    <End Role="alumno" Type="Self.alumno" Multiplicity="1" />
+    <End Role="inscripcion" Type="Self.inscripcion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="alumno">
+        <PropertyRef Name="username_alum" />
+      </Principal>
+      <Dependent Role="inscripcion">
+        <PropertyRef Name="username_alum" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="carrera_sede_fk">
+    <End Role="sede" Type="Self.sede" Multiplicity="1" />
+    <End Role="carrera" Type="Self.carrera" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="sede">
+        <PropertyRef Name="id_sede" />
+      </Principal>
+      <Dependent Role="carrera">
+        <PropertyRef Name="id_sede" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ramo_carrera_fk">
+    <End Role="carrera" Type="Self.carrera" Multiplicity="1" />
+    <End Role="ramo" Type="Self.ramo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="carrera">
+        <PropertyRef Name="id_sede" />
+        <PropertyRef Name="id_carrera" />
+      </Principal>
+      <Dependent Role="ramo">
+        <PropertyRef Name="id_sede" />
+        <PropertyRef Name="id_carrera" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ins_sec_fk">
+    <End Role="seccion" Type="Self.seccion" Multiplicity="1" />
+    <End Role="inscripcion" Type="Self.inscripcion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="seccion">
+        <PropertyRef Name="id_seccion" />
+        <PropertyRef Name="id_ramo" />
+        <PropertyRef Name="id_carrera" />
+        <PropertyRef Name="id_sede" />
+      </Principal>
+      <Dependent Role="inscripcion">
+        <PropertyRef Name="id_seccion" />
+        <PropertyRef Name="id_ramo" />
+        <PropertyRef Name="id_carrera" />
+        <PropertyRef Name="id_sede" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="seccion_jornada_fk">
+    <End Role="jornada" Type="Self.jornada" Multiplicity="1" />
+    <End Role="seccion" Type="Self.seccion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="jornada">
+        <PropertyRef Name="id_jor" />
+      </Principal>
+      <Dependent Role="seccion">
+        <PropertyRef Name="id_jor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="seccion_profesor_fk">
+    <End Role="profesor" Type="Self.profesor" Multiplicity="1" />
+    <End Role="seccion" Type="Self.seccion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="profesor">
+        <PropertyRef Name="username_prof" />
+      </Principal>
+      <Dependent Role="seccion">
+        <PropertyRef Name="username_prof" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="seccion_ramo_fk">
+    <End Role="ramo" Type="Self.ramo" Multiplicity="1" />
+    <End Role="seccion" Type="Self.seccion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ramo">
+        <PropertyRef Name="id_ramo" />
+        <PropertyRef Name="id_carrera" />
+        <PropertyRef Name="id_sede" />
+      </Principal>
+      <Dependent Role="seccion">
+        <PropertyRef Name="id_ramo" />
+        <PropertyRef Name="id_carrera" />
+        <PropertyRef Name="id_sede" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="RamosEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="alumno" EntityType="Self.alumno" />
+    <EntitySet Name="carrera" EntityType="Self.carrera" />
+    <EntitySet Name="inscripcion" EntityType="Self.inscripcion" />
+    <EntitySet Name="jornada" EntityType="Self.jornada" />
+    <EntitySet Name="profesor" EntityType="Self.profesor" />
+    <EntitySet Name="ramo" EntityType="Self.ramo" />
+    <EntitySet Name="seccion" EntityType="Self.seccion" />
+    <EntitySet Name="sede" EntityType="Self.sede" />
+    <AssociationSet Name="alumno_carrera_fk" Association="Self.alumno_carrera_fk">
+      <End Role="carrera" EntitySet="carrera" />
+      <End Role="alumno" EntitySet="alumno" />
+    </AssociationSet>
+    <AssociationSet Name="ins_alu_fk" Association="Self.ins_alu_fk">
+      <End Role="alumno" EntitySet="alumno" />
+      <End Role="inscripcion" EntitySet="inscripcion" />
+    </AssociationSet>
+    <AssociationSet Name="carrera_sede_fk" Association="Self.carrera_sede_fk">
+      <End Role="sede" EntitySet="sede" />
+      <End Role="carrera" EntitySet="carrera" />
+    </AssociationSet>
+    <AssociationSet Name="ramo_carrera_fk" Association="Self.ramo_carrera_fk">
+      <End Role="carrera" EntitySet="carrera" />
+      <End Role="ramo" EntitySet="ramo" />
+    </AssociationSet>
+    <AssociationSet Name="ins_sec_fk" Association="Self.ins_sec_fk">
+      <End Role="seccion" EntitySet="seccion" />
+      <End Role="inscripcion" EntitySet="inscripcion" />
+    </AssociationSet>
+    <AssociationSet Name="seccion_jornada_fk" Association="Self.seccion_jornada_fk">
+      <End Role="jornada" EntitySet="jornada" />
+      <End Role="seccion" EntitySet="seccion" />
+    </AssociationSet>
+    <AssociationSet Name="seccion_profesor_fk" Association="Self.seccion_profesor_fk">
+      <End Role="profesor" EntitySet="profesor" />
+      <End Role="seccion" EntitySet="seccion" />
+    </AssociationSet>
+    <AssociationSet Name="seccion_ramo_fk" Association="Self.seccion_ramo_fk">
+      <End Role="ramo" EntitySet="ramo" />
+      <End Role="seccion" EntitySet="seccion" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

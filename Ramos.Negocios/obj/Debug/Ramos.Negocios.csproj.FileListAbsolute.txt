@@ -1,0 +1,15 @@
+C:\Users\ryu66\Desktop\Ramos\Ramos.Negocios\obj\Debug\Ramos.Negocios.csprojAssemblyReference.cache
+C:\Users\ryu66\Desktop\Ramos\Ramos.Negocios\obj\Debug\Ramos.Negocios.csproj.CoreCompileInputs.cache
+C:\Users\ryu66\Desktop\Ramos\Ramos.Negocios\bin\Debug\Ramos.Negocios.dll.config
+C:\Users\ryu66\Desktop\Ramos\Ramos.Negocios\bin\Debug\Ramos.Negocios.dll
+C:\Users\ryu66\Desktop\Ramos\Ramos.Negocios\bin\Debug\Ramos.Negocios.pdb
+C:\Users\ryu66\Desktop\Ramos\Ramos.Negocios\bin\Debug\EntityFramework.dll
+C:\Users\ryu66\Desktop\Ramos\Ramos.Negocios\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\ryu66\Desktop\Ramos\Ramos.Negocios\bin\Debug\Ramos.Datos.dll
+C:\Users\ryu66\Desktop\Ramos\Ramos.Negocios\bin\Debug\Ramos.Datos.pdb
+C:\Users\ryu66\Desktop\Ramos\Ramos.Negocios\bin\Debug\Ramos.Datos.dll.config
+C:\Users\ryu66\Desktop\Ramos\Ramos.Negocios\bin\Debug\EntityFramework.xml
+C:\Users\ryu66\Desktop\Ramos\Ramos.Negocios\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\ryu66\Desktop\Ramos\Ramos.Negocios\obj\Debug\Ramos.Negocios.csproj.CopyComplete
+C:\Users\ryu66\Desktop\Ramos\Ramos.Negocios\obj\Debug\Ramos.Negocios.dll
+C:\Users\ryu66\Desktop\Ramos\Ramos.Negocios\obj\Debug\Ramos.Negocios.pdb

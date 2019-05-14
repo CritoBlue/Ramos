@@ -1,0 +1,12 @@
+C:\Users\ryu66\Desktop\Ramos\Ramos.Datos\bin\Debug\Ramos.Datos.dll.config
+C:\Users\ryu66\Desktop\Ramos\Ramos.Datos\bin\Debug\Ramos.Datos.dll
+C:\Users\ryu66\Desktop\Ramos\Ramos.Datos\bin\Debug\Ramos.Datos.pdb
+C:\Users\ryu66\Desktop\Ramos\Ramos.Datos\bin\Debug\EntityFramework.dll
+C:\Users\ryu66\Desktop\Ramos\Ramos.Datos\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\ryu66\Desktop\Ramos\Ramos.Datos\bin\Debug\EntityFramework.xml
+C:\Users\ryu66\Desktop\Ramos\Ramos.Datos\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\ryu66\Desktop\Ramos\Ramos.Datos\obj\Debug\Ramos.Datos.csprojAssemblyReference.cache
+C:\Users\ryu66\Desktop\Ramos\Ramos.Datos\obj\Debug\Ramos.Datos.csproj.CoreCompileInputs.cache
+C:\Users\ryu66\Desktop\Ramos\Ramos.Datos\obj\Debug\Ramos.Datos.csproj.CopyComplete
+C:\Users\ryu66\Desktop\Ramos\Ramos.Datos\obj\Debug\Ramos.Datos.dll
+C:\Users\ryu66\Desktop\Ramos\Ramos.Datos\obj\Debug\Ramos.Datos.pdb

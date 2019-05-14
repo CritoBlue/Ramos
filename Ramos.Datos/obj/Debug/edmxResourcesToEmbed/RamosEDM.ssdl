@@ -1,0 +1,255 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="RamosModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="alumno">
+    <Key>
+      <PropertyRef Name="username_alum" />
+    </Key>
+    <Property Name="username_alum" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="password_alum" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="rut_alum" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="pnombre_alum" Type="nvarchar" MaxLength="25" Nullable="false" />
+    <Property Name="snombre_alum" Type="nvarchar" MaxLength="25" Nullable="false" />
+    <Property Name="papellido_alum" Type="nvarchar" MaxLength="25" Nullable="false" />
+    <Property Name="sapellido_alum" Type="nvarchar" MaxLength="25" Nullable="false" />
+    <Property Name="tel_alum" Type="bigint" Nullable="false" />
+    <Property Name="semestre_actual" Type="int" Nullable="false" />
+    <Property Name="id_sede" Type="int" Nullable="false" />
+    <Property Name="id_carrera" Type="nvarchar" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <EntityType Name="carrera">
+    <Key>
+      <PropertyRef Name="id_carrera" />
+      <PropertyRef Name="id_sede" />
+    </Key>
+    <Property Name="id_carrera" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="id_sede" Type="int" Nullable="false" />
+    <Property Name="nombre_carrera" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="inscripcion">
+    <Key>
+      <PropertyRef Name="id_seccion" />
+      <PropertyRef Name="id_ramo" />
+      <PropertyRef Name="id_carrera" />
+      <PropertyRef Name="id_sede" />
+      <PropertyRef Name="username_alum" />
+    </Key>
+    <Property Name="id_seccion" Type="nvarchar" MaxLength="5" Nullable="false" />
+    <Property Name="id_ramo" Type="nvarchar" MaxLength="3" Nullable="false" />
+    <Property Name="id_carrera" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="id_sede" Type="int" Nullable="false" />
+    <Property Name="username_alum" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="fecha_inscripcion" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="jornada">
+    <Key>
+      <PropertyRef Name="id_jor" />
+    </Key>
+    <Property Name="id_jor" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="desc_jor" Type="nvarchar" MaxLength="15" Nullable="false" />
+  </EntityType>
+  <EntityType Name="profesor">
+    <Key>
+      <PropertyRef Name="username_prof" />
+    </Key>
+    <Property Name="username_prof" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="password_prof" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="rut_prof" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="pnombre_prof" Type="nvarchar" MaxLength="25" Nullable="false" />
+    <Property Name="snombre_prof" Type="nvarchar" MaxLength="25" Nullable="false" />
+    <Property Name="papellido_prof" Type="nvarchar" MaxLength="25" Nullable="false" />
+    <Property Name="sapellido_prof" Type="nvarchar" MaxLength="25" Nullable="false" />
+    <Property Name="tel_prof" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ramo">
+    <Key>
+      <PropertyRef Name="id_ramo" />
+      <PropertyRef Name="id_carrera" />
+      <PropertyRef Name="id_sede" />
+    </Key>
+    <Property Name="id_ramo" Type="nvarchar" MaxLength="3" Nullable="false" />
+    <Property Name="id_carrera" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="id_sede" Type="int" Nullable="false" />
+    <Property Name="nombre_ramo" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="semestre" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="seccion">
+    <Key>
+      <PropertyRef Name="id_seccion" />
+      <PropertyRef Name="id_ramo" />
+      <PropertyRef Name="id_carrera" />
+      <PropertyRef Name="id_sede" />
+    </Key>
+    <Property Name="id_seccion" Type="nvarchar" MaxLength="5" Nullable="false" />
+    <Property Name="id_ramo" Type="nvarchar" MaxLength="3" Nullable="false" />
+    <Property Name="id_carrera" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="id_sede" Type="int" Nullable="false" />
+    <Property Name="id_jor" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="username_prof" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="cupo" Type="int" Nullable="false" />
+    <Property Name="dia1" Type="char" MaxLength="2" Nullable="false" />
+    <Property Name="hora_entrada1" Type="nvarchar" MaxLength="5" Nullable="false" />
+    <Property Name="hora_salida1" Type="nvarchar" MaxLength="5" Nullable="false" />
+    <Property Name="dia2" Type="char" MaxLength="2" />
+    <Property Name="hora_entrada2" Type="nvarchar" MaxLength="5" />
+    <Property Name="hora_salida2" Type="nvarchar" MaxLength="5" />
+  </EntityType>
+  <EntityType Name="sede">
+    <Key>
+      <PropertyRef Name="id_sede" />
+    </Key>
+    <Property Name="id_sede" Type="int" Nullable="false" />
+    <Property Name="nombre_sede" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <Association Name="alumno_carrera_fk">
+    <End Role="carrera" Type="Self.carrera" Multiplicity="1" />
+    <End Role="alumno" Type="Self.alumno" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="carrera">
+        <PropertyRef Name="id_sede" />
+        <PropertyRef Name="id_carrera" />
+      </Principal>
+      <Dependent Role="alumno">
+        <PropertyRef Name="id_sede" />
+        <PropertyRef Name="id_carrera" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="carrera_sede_fk">
+    <End Role="sede" Type="Self.sede" Multiplicity="1" />
+    <End Role="carrera" Type="Self.carrera" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="sede">
+        <PropertyRef Name="id_sede" />
+      </Principal>
+      <Dependent Role="carrera">
+        <PropertyRef Name="id_sede" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ins_alu_fk">
+    <End Role="alumno" Type="Self.alumno" Multiplicity="1" />
+    <End Role="inscripcion" Type="Self.inscripcion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="alumno">
+        <PropertyRef Name="username_alum" />
+      </Principal>
+      <Dependent Role="inscripcion">
+        <PropertyRef Name="username_alum" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ins_sec_fk">
+    <End Role="seccion" Type="Self.seccion" Multiplicity="1" />
+    <End Role="inscripcion" Type="Self.inscripcion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="seccion">
+        <PropertyRef Name="id_seccion" />
+        <PropertyRef Name="id_ramo" />
+        <PropertyRef Name="id_carrera" />
+        <PropertyRef Name="id_sede" />
+      </Principal>
+      <Dependent Role="inscripcion">
+        <PropertyRef Name="id_seccion" />
+        <PropertyRef Name="id_ramo" />
+        <PropertyRef Name="id_carrera" />
+        <PropertyRef Name="id_sede" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ramo_carrera_fk">
+    <End Role="carrera" Type="Self.carrera" Multiplicity="1" />
+    <End Role="ramo" Type="Self.ramo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="carrera">
+        <PropertyRef Name="id_sede" />
+        <PropertyRef Name="id_carrera" />
+      </Principal>
+      <Dependent Role="ramo">
+        <PropertyRef Name="id_sede" />
+        <PropertyRef Name="id_carrera" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="seccion_jornada_fk">
+    <End Role="jornada" Type="Self.jornada" Multiplicity="1" />
+    <End Role="seccion" Type="Self.seccion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="jornada">
+        <PropertyRef Name="id_jor" />
+      </Principal>
+      <Dependent Role="seccion">
+        <PropertyRef Name="id_jor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="seccion_profesor_fk">
+    <End Role="profesor" Type="Self.profesor" Multiplicity="1" />
+    <End Role="seccion" Type="Self.seccion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="profesor">
+        <PropertyRef Name="username_prof" />
+      </Principal>
+      <Dependent Role="seccion">
+        <PropertyRef Name="username_prof" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="seccion_ramo_fk">
+    <End Role="ramo" Type="Self.ramo" Multiplicity="1" />
+    <End Role="seccion" Type="Self.seccion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ramo">
+        <PropertyRef Name="id_ramo" />
+        <PropertyRef Name="id_carrera" />
+        <PropertyRef Name="id_sede" />
+      </Principal>
+      <Dependent Role="seccion">
+        <PropertyRef Name="id_ramo" />
+        <PropertyRef Name="id_carrera" />
+        <PropertyRef Name="id_sede" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="RamosModelStoreContainer">
+    <EntitySet Name="alumno" EntityType="Self.alumno" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="carrera" EntityType="Self.carrera" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="inscripcion" EntityType="Self.inscripcion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="jornada" EntityType="Self.jornada" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="profesor" EntityType="Self.profesor" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ramo" EntityType="Self.ramo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="seccion" EntityType="Self.seccion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sede" EntityType="Self.sede" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="alumno_carrera_fk" Association="Self.alumno_carrera_fk">
+      <End Role="carrera" EntitySet="carrera" />
+      <End Role="alumno" EntitySet="alumno" />
+    </AssociationSet>
+    <AssociationSet Name="carrera_sede_fk" Association="Self.carrera_sede_fk">
+      <End Role="sede" EntitySet="sede" />
+      <End Role="carrera" EntitySet="carrera" />
+    </AssociationSet>
+    <AssociationSet Name="ins_alu_fk" Association="Self.ins_alu_fk">
+      <End Role="alumno" EntitySet="alumno" />
+      <End Role="inscripcion" EntitySet="inscripcion" />
+    </AssociationSet>
+    <AssociationSet Name="ins_sec_fk" Association="Self.ins_sec_fk">
+      <End Role="seccion" EntitySet="seccion" />
+      <End Role="inscripcion" EntitySet="inscripcion" />
+    </AssociationSet>
+    <AssociationSet Name="ramo_carrera_fk" Association="Self.ramo_carrera_fk">
+      <End Role="carrera" EntitySet="carrera" />
+      <End Role="ramo" EntitySet="ramo" />
+    </AssociationSet>
+    <AssociationSet Name="seccion_jornada_fk" Association="Self.seccion_jornada_fk">
+      <End Role="jornada" EntitySet="jornada" />
+      <End Role="seccion" EntitySet="seccion" />
+    </AssociationSet>
+    <AssociationSet Name="seccion_profesor_fk" Association="Self.seccion_profesor_fk">
+      <End Role="profesor" EntitySet="profesor" />
+      <End Role="seccion" EntitySet="seccion" />
+    </AssociationSet>
+    <AssociationSet Name="seccion_ramo_fk" Association="Self.seccion_ramo_fk">
+      <End Role="ramo" EntitySet="ramo" />
+      <End Role="seccion" EntitySet="seccion" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
