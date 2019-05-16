@@ -26,3 +26,5 @@ C:\Users\ryu66\Desktop\Ramos\Ramos.Presentacion\obj\Debug\Ramos.Presentacion.csp
 C:\Users\ryu66\Desktop\Ramos\Ramos.Presentacion\obj\Debug\Ramos.Presentacion.csproj.CopyComplete
 C:\Users\ryu66\Desktop\Ramos\Ramos.Presentacion\obj\Debug\Ramos.Presentacion.exe
 C:\Users\ryu66\Desktop\Ramos\Ramos.Presentacion\obj\Debug\Ramos.Presentacion.pdb
+C:\Users\ryu66\Desktop\Ramos\Ramos.Presentacion\obj\Debug\VistaHorario.g.cs
+C:\Users\ryu66\Desktop\Ramos\Ramos.Presentacion\obj\Debug\VistaHorario.baml

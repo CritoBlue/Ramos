@@ -1,0 +1,21 @@
+﻿<Window x:Class="Ramos.Presentacion.VistaHorario"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Ramos.Presentacion"
+        mc:Ignorable="d"
+        Title="Toma de Ramos - Horario" Height="400" Width="600" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen" >
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="White" Offset="0"/>
+                <GradientStop Color="#FFEEE8CD" Offset="0.5"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <DataGrid x:Name="dtgHorario" Height="225" Margin="20,60,0,0" VerticalAlignment="Top" CanUserAddRows="False" HorizontalAlignment="Left" Width="554"/>
+        <Label x:Name="lbHorario" Content="Horario - *alumno*" HorizontalAlignment="Left" Margin="20,10,0,0" VerticalAlignment="Top" Height="45" Width="450" FontSize="20"/>
+        <Button x:Name="btnSalir" Content="Salir" Margin="0,0,20,25" HorizontalAlignment="Right" Width="75" Height="30" VerticalAlignment="Bottom" Click="BtnSalir_Click"/>
+
+    </Grid>
+</Window>

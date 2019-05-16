@@ -13,11 +13,12 @@
                 <GradientStop Color="#FFEEE8CD" Offset="0.5"/>
             </LinearGradientBrush>
         </Grid.Background>
-        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Center" Height="175" Margin="0,90,0,0" Stroke="Black" VerticalAlignment="Top" Width="224"/>
-        <TextBox x:Name="txtUsername" Height="23" Margin="0,126,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="14" HorizontalAlignment="Center" Width="122"/>
-        <PasswordBox x:Name="pwdPassword" Margin="0,182,0,0" VerticalAlignment="Top" Height="23" HorizontalAlignment="Center" Width="122"/>
-        <Label Content="Password:" Margin="0,156,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" Width="122"/>
-        <Label Content="Username:" Margin="0,100,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Center" Width="122"/>
-        <Button x:Name="btnLogin" Content="Login" Margin="0,225,0,0" VerticalAlignment="Top" Click="BtnLogin_Click" HorizontalAlignment="Center" Width="50"/>
+        <Rectangle Fill="#FFF4F4F5" Height="175" Margin="72,104,0,0" Stroke="Black" Width="250" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtUsername" Height="22" Margin="122,142,0,0" TextWrapping="Wrap" Width="150" HorizontalAlignment="Left" VerticalAlignment="Top" TabIndex="0"/>
+        <PasswordBox x:Name="pwdPassword" Margin="122,197,0,0" Height="23" Width="150" FontSize="11" HorizontalAlignment="Left" VerticalAlignment="Top" TabIndex="1"/>
+        <Label Content="Password:" Margin="122,171,0,0" HorizontalAlignment="Left" Width="150" Height="26" VerticalAlignment="Top"/>
+        <Label Content="Username:" Margin="122,115,0,0" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" Width="150" Height="27" VerticalAlignment="Top"/>
+        <Button x:Name="btnLogin" Content="Login" Margin="172,240,0,0" Click="BtnLogin_Click" Width="50" HorizontalAlignment="Left" Height="25" VerticalAlignment="Top" TabIndex="2"/>
+        <Image Height="70" Margin="60,20,0,0" Source="Assets/duoc.png" VerticalAlignment="Top" HorizontalAlignment="Left" Width="274"/>
     </Grid>
 </Window>
