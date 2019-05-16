@@ -1,6 +1,7 @@
 create database "Ramos";
+
 use "Ramos";
-go;
+
 
 CREATE TABLE alumno (
     username_alum     NVARCHAR(20) NOT NULL,
@@ -150,3 +151,193 @@ ALTER TABLE seccion
         REFERENCES ramo ( id_ramo,
                           id_carrera,
                           id_sede );
+
+
+INSERT INTO SEDE VALUES (101, 'Sede Maipú');
+INSERT INTO SEDE VALUES (102, 'Sede Alameda');
+INSERT INTO SEDE VALUES (103, 'Sede Plaza Vespucio');
+INSERT INTO SEDE VALUES (104, 'Sede Melipilla');
+INSERT INTO SEDE VALUES (105, 'Sede Plaza Norte');
+INSERT INTO SEDE VALUES (106, 'Sede Plaza Oeste');
+INSERT INTO SEDE VALUES (107, 'Sede Puente Alto');
+INSERT INTO SEDE VALUES (108, 'Sede San Joaquín');
+INSERT INTO SEDE VALUES (109, 'Sede San Carlos de Apoquindo');
+INSERT INTO SEDE VALUES (110, 'Sede San Bernardo');
+INSERT INTO SEDE VALUES (111, 'Sede Padre Alonso de Ovalle');
+INSERT INTO SEDE VALUES (112, 'Sede Antonio Varas');
+INSERT INTO SEDE VALUES (201, 'Sede Campus Arauco');
+INSERT INTO SEDE VALUES (301, 'Sede Valparaíso');
+INSERT INTO SEDE VALUES (302, 'Sede Viña del Mar');
+INSERT INTO SEDE VALUES (401, 'Sede San Andrés de Concepción');
+
+--------------------------------------------------------
+
+INSERT INTO CARRERA VALUES (101, 101, 'Ingeniería en Informática');
+INSERT INTO CARRERA VALUES (101, 103, 'Ingeniería en Informática');
+INSERT INTO CARRERA VALUES (101, 104, 'Ingeniería en Informática');
+INSERT INTO CARRERA VALUES (101, 105, 'Ingeniería en Informática');
+INSERT INTO CARRERA VALUES (101, 106, 'Ingeniería en Informática');
+INSERT INTO CARRERA VALUES (101, 107, 'Ingeniería en Informática');
+INSERT INTO CARRERA VALUES (101, 108, 'Ingeniería en Informática');
+INSERT INTO CARRERA VALUES (101, 109, 'Ingeniería en Informática');
+INSERT INTO CARRERA VALUES (101, 110, 'Ingeniería en Informática');
+INSERT INTO CARRERA VALUES (101, 111, 'Ingeniería en Informática');
+INSERT INTO CARRERA VALUES (101, 112, 'Ingeniería en Informática');
+INSERT INTO CARRERA VALUES (101, 302, 'Ingeniería en Informática');
+INSERT INTO CARRERA VALUES (101, 401, 'Ingeniería en Informática');
+
+INSERT INTO CARRERA VALUES (102, 101, 'Analista Programador Computacional');
+INSERT INTO CARRERA VALUES (102, 104, 'Analista Programador Computacional');
+INSERT INTO CARRERA VALUES (102, 105, 'Analista Programador Computacional');
+INSERT INTO CARRERA VALUES (102, 106, 'Analista Programador Computacional');
+INSERT INTO CARRERA VALUES (102, 107, 'Analista Programador Computacional');
+INSERT INTO CARRERA VALUES (102, 108, 'Analista Programador Computacional');
+INSERT INTO CARRERA VALUES (102, 110, 'Analista Programador Computacional');
+INSERT INTO CARRERA VALUES (102, 111, 'Analista Programador Computacional');
+INSERT INTO CARRERA VALUES (102, 302, 'Analista Programador Computacional');
+INSERT INTO CARRERA VALUES (102, 401, 'Analista Programador Computacional');
+
+INSERT INTO CARRERA VALUES (201, 101, 'Auditoría');
+INSERT INTO CARRERA VALUES (201, 103, 'Auditoría');
+INSERT INTO CARRERA VALUES (201, 104, 'Auditoría');
+INSERT INTO CARRERA VALUES (201, 105, 'Auditoría');
+INSERT INTO CARRERA VALUES (201, 106, 'Auditoría');
+INSERT INTO CARRERA VALUES (201, 107, 'Auditoría');
+INSERT INTO CARRERA VALUES (201, 109, 'Auditoría');
+INSERT INTO CARRERA VALUES (201, 110, 'Auditoría');
+INSERT INTO CARRERA VALUES (201, 111, 'Auditoría');
+INSERT INTO CARRERA VALUES (201, 112, 'Auditoría');
+INSERT INTO CARRERA VALUES (201, 302, 'Auditoría');
+
+INSERT INTO CARRERA VALUES (202, 101, 'Ingeniería En Administración De Recursos Humanos');
+INSERT INTO CARRERA VALUES (202, 102, 'Ingeniería En Administración De Recursos Humanos');
+INSERT INTO CARRERA VALUES (202, 103, 'Ingeniería En Administración De Recursos Humanos');
+INSERT INTO CARRERA VALUES (202, 104, 'Ingeniería En Administración De Recursos Humanos');
+INSERT INTO CARRERA VALUES (202, 105, 'Ingeniería En Administración De Recursos Humanos');
+INSERT INTO CARRERA VALUES (202, 106, 'Ingeniería En Administración De Recursos Humanos');
+INSERT INTO CARRERA VALUES (202, 107, 'Ingeniería En Administración De Recursos Humanos');
+INSERT INTO CARRERA VALUES (202, 109, 'Ingeniería En Administración De Recursos Humanos');
+INSERT INTO CARRERA VALUES (202, 110, 'Ingeniería En Administración De Recursos Humanos');
+INSERT INTO CARRERA VALUES (202, 111, 'Ingeniería En Administración De Recursos Humanos');
+INSERT INTO CARRERA VALUES (202, 112, 'Ingeniería En Administración De Recursos Humanos');
+INSERT INTO CARRERA VALUES (202, 302, 'Ingeniería En Administración De Recursos Humanos');
+INSERT INTO CARRERA VALUES (202, 401, 'Ingeniería En Administración De Recursos Humanos');
+
+INSERT INTO CARRERA VALUES (301, 109, 'Actuación');
+INSERT INTO CARRERA VALUES (301, 302, 'Actuación');
+
+INSERT INTO CARRERA VALUES (302, 109, 'Animación Digital');
+INSERT INTO CARRERA VALUES (302, 302, 'Animación Digital');
+
+INSERT INTO CARRERA VALUES (303, 101, 'Publicidad');
+INSERT INTO CARRERA VALUES (303, 103, 'Publicidad');
+INSERT INTO CARRERA VALUES (303, 109, 'Publicidad');
+INSERT INTO CARRERA VALUES (303, 302, 'Publicidad');
+INSERT INTO CARRERA VALUES (303, 401, 'Publicidad');
+
+INSERT INTO CARRERA VALUES (401, 103, 'Diseño Gráfico');
+INSERT INTO CARRERA VALUES (401, 106, 'Diseño Gráfico');
+INSERT INTO CARRERA VALUES (401, 109, 'Diseño Gráfico');
+INSERT INTO CARRERA VALUES (401, 302, 'Diseño Gráfico');
+INSERT INTO CARRERA VALUES (401, 401, 'Diseño Gráfico');
+
+INSERT INTO CARRERA VALUES (402, 103, 'Desarrollo y Diseño Web');
+INSERT INTO CARRERA VALUES (402, 302, 'Desarrollo y Diseño Web');
+
+--------------------------------------------------------
+
+INSERT INTO JORNADA VALUES (0, 'Diurno');
+INSERT INTO JORNADA VALUES (1, 'Vespertino');
+INSERT INTO JORNADA VALUES (2, 'Fin de semana');
+INSERT INTO JORNADA VALUES (3, 'Semi Presencial');
+
+--------------------------------------------------------
+
+INSERT INTO RAMO VALUES ('GAY', 101, 101, 'Gestión Ágil de Proyectos', 5);
+INSERT INTO RAMO VALUES ('GAY', 101, 103, 'Gestión Ágil de Proyectos', 5);
+INSERT INTO RAMO VALUES ('GAY', 101, 104, 'Gestión Ágil de Proyectos', 5);
+INSERT INTO RAMO VALUES ('GAY', 101, 105, 'Gestión Ágil de Proyectos', 5);
+INSERT INTO RAMO VALUES ('GAY', 101, 106, 'Gestión Ágil de Proyectos', 5);
+INSERT INTO RAMO VALUES ('GAY', 101, 107, 'Gestión Ágil de Proyectos', 5);
+INSERT INTO RAMO VALUES ('GAY', 101, 108, 'Gestión Ágil de Proyectos', 5);
+INSERT INTO RAMO VALUES ('GAY', 101, 109, 'Gestión Ágil de Proyectos', 5);
+INSERT INTO RAMO VALUES ('GAY', 101, 110, 'Gestión Ágil de Proyectos', 5);
+INSERT INTO RAMO VALUES ('GAY', 101, 111, 'Gestión Ágil de Proyectos', 5);
+INSERT INTO RAMO VALUES ('GAY', 101, 112, 'Gestión Ágil de Proyectos', 5);
+INSERT INTO RAMO VALUES ('GAY', 101, 302, 'Gestión Ágil de Proyectos', 5);
+INSERT INTO RAMO VALUES ('GAY', 101, 401, 'Gestión Ágil de Proyectos', 5);
+
+INSERT INTO RAMO VALUES ('BMY', 101, 101, 'Procesos de Negocio (BPM)', 5);
+INSERT INTO RAMO VALUES ('BMY', 101, 103, 'Procesos de Negocio (BPM)', 5);
+INSERT INTO RAMO VALUES ('BMY', 101, 104, 'Procesos de Negocio (BPM)', 5);
+INSERT INTO RAMO VALUES ('BMY', 101, 105, 'Procesos de Negocio (BPM)', 5);
+INSERT INTO RAMO VALUES ('BMY', 101, 106, 'Procesos de Negocio (BPM)', 5);
+INSERT INTO RAMO VALUES ('BMY', 101, 107, 'Procesos de Negocio (BPM)', 5);
+INSERT INTO RAMO VALUES ('BMY', 101, 108, 'Procesos de Negocio (BPM)', 5);
+INSERT INTO RAMO VALUES ('BMY', 101, 109, 'Procesos de Negocio (BPM)', 5);
+INSERT INTO RAMO VALUES ('BMY', 101, 110, 'Procesos de Negocio (BPM)', 5);
+INSERT INTO RAMO VALUES ('BMY', 101, 111, 'Procesos de Negocio (BPM)', 5);
+INSERT INTO RAMO VALUES ('BMY', 101, 112, 'Procesos de Negocio (BPM)', 5);
+INSERT INTO RAMO VALUES ('BMY', 101, 302, 'Procesos de Negocio (BPM)', 5);
+INSERT INTO RAMO VALUES ('BMY', 101, 401, 'Procesos de Negocio (BPM)', 5);
+
+INSERT INTO RAMO VALUES ('IPY', 101, 101, 'Integración de Plataformas', 5);
+INSERT INTO RAMO VALUES ('IPY', 101, 103, 'Integración de Plataformas', 5);
+INSERT INTO RAMO VALUES ('IPY', 101, 104, 'Integración de Plataformas', 5);
+INSERT INTO RAMO VALUES ('IPY', 101, 105, 'Integración de Plataformas', 5);
+INSERT INTO RAMO VALUES ('IPY', 101, 106, 'Integración de Plataformas', 5);
+INSERT INTO RAMO VALUES ('IPY', 101, 107, 'Integración de Plataformas', 5);
+INSERT INTO RAMO VALUES ('IPY', 101, 108, 'Integración de Plataformas', 5);
+INSERT INTO RAMO VALUES ('IPY', 101, 109, 'Integración de Plataformas', 5);
+INSERT INTO RAMO VALUES ('IPY', 101, 110, 'Integración de Plataformas', 5);
+INSERT INTO RAMO VALUES ('IPY', 101, 111, 'Integración de Plataformas', 5);
+INSERT INTO RAMO VALUES ('IPY', 101, 112, 'Integración de Plataformas', 5);
+INSERT INTO RAMO VALUES ('IPY', 101, 302, 'Integración de Plataformas', 5);
+INSERT INTO RAMO VALUES ('IPY', 101, 401, 'Integración de Plataformas', 5);
+
+INSERT INTO RAMO VALUES ('EPY', 101, 101, 'Evaluación de Proyectos', 5);
+INSERT INTO RAMO VALUES ('EPY', 101, 103, 'Evaluación de Proyectos', 5);
+INSERT INTO RAMO VALUES ('EPY', 101, 104, 'Evaluación de Proyectos', 5);
+INSERT INTO RAMO VALUES ('EPY', 101, 105, 'Evaluación de Proyectos', 5);
+INSERT INTO RAMO VALUES ('EPY', 101, 106, 'Evaluación de Proyectos', 5);
+INSERT INTO RAMO VALUES ('EPY', 101, 107, 'Evaluación de Proyectos', 5);
+INSERT INTO RAMO VALUES ('EPY', 101, 108, 'Evaluación de Proyectos', 5);
+INSERT INTO RAMO VALUES ('EPY', 101, 109, 'Evaluación de Proyectos', 5);
+INSERT INTO RAMO VALUES ('EPY', 101, 110, 'Evaluación de Proyectos', 5);
+INSERT INTO RAMO VALUES ('EPY', 101, 111, 'Evaluación de Proyectos', 5);
+INSERT INTO RAMO VALUES ('EPY', 101, 112, 'Evaluación de Proyectos', 5);
+INSERT INTO RAMO VALUES ('EPY', 101, 302, 'Evaluación de Proyectos', 5);
+INSERT INTO RAMO VALUES ('EPY', 101, 401, 'Evaluación de Proyectos', 5);
+
+INSERT INTO RAMO VALUES ('INU', 101, 101, 'Inglés Avanzado I', 5);
+INSERT INTO RAMO VALUES ('INU', 101, 103, 'Inglés Avanzado I', 5);
+INSERT INTO RAMO VALUES ('INU', 101, 104, 'Inglés Avanzado I', 5);
+INSERT INTO RAMO VALUES ('INU', 101, 105, 'Inglés Avanzado I', 5);
+INSERT INTO RAMO VALUES ('INU', 101, 106, 'Inglés Avanzado I', 5);
+INSERT INTO RAMO VALUES ('INU', 101, 107, 'Inglés Avanzado I', 5);
+INSERT INTO RAMO VALUES ('INU', 101, 108, 'Inglés Avanzado I', 5);
+INSERT INTO RAMO VALUES ('INU', 101, 109, 'Inglés Avanzado I', 5);
+INSERT INTO RAMO VALUES ('INU', 101, 110, 'Inglés Avanzado I', 5);
+INSERT INTO RAMO VALUES ('INU', 101, 111, 'Inglés Avanzado I', 5);
+INSERT INTO RAMO VALUES ('INU', 101, 112, 'Inglés Avanzado I', 5);
+INSERT INTO RAMO VALUES ('INU', 101, 302, 'Inglés Avanzado I', 5);
+INSERT INTO RAMO VALUES ('INU', 101, 401, 'Inglés Avanzado I', 5);
+
+--------------------------------------------------------
+
+INSERT INTO ALUMNO VALUES ('cr.sierpe', 'wea123uwu', '20220367-1', 'Cristóbal', 'Andrés', 'Sierpe', 'Baeza', 0985963330, 5, 101, 101);
+INSERT INTO ALUMNO VALUES ('y.fuentesk', 'ehbb123', '19565341-0', 'Yerko', 'Ariel', 'Fuentes', 'Kacic', 0966611113, 5, 101, 101);
+INSERT INTO ALUMNO VALUES ('ray.cacere', 'contrasena1', '18530680-1', 'Rayen', 'Carolina', 'Cáceres', 'Vega', 0995354943, 5, 101, 101);
+INSERT INTO ALUMNO VALUES ('alumno', 'alumno', '20000000-1', 'Juan', 'Pablo', 'Perez', 'Gonzalez', 0998765430, 1, 101, 102);
+
+--------------------------------------------------------
+
+INSERT INTO PROFESOR VALUES ('profesor', 'profesor', '11111111-1', 'Antonio', 'Javier', 'Lopez', 'Moya', 0956473829);
+INSERT INTO PROFESOR VALUES ('profesora', 'profesora', '11222222-2', 'Javiera', 'Antonia', 'Rojas', 'Fuentes', 0992837465);
+INSERT INTO PROFESOR VALUES ('prof.wea', 'profewea', '11333333-3', 'Jean', 'Paul', 'Jara', 'Vega', 0912345678);
+
+--------------------------------------------------------
+
+INSERT INTO SECCION VALUES ('001', 'GAY', 101, 101, 0 , 'profesor', 30, 'Lu', '14:31', '16:00', 'Ju', '14:31', '16:00');
+INSERT INTO SECCION VALUES ('002', 'GAY', 101, 101, 1, 'profesora', 30, 'Ma', '19:01', '20:30', 'Vi', '19:01', '20:30');
+INSERT INTO SECCION VALUES ('001', 'GAY', 101, 106, 0, 'prof.wea', 30, 'Lu', '16:01', '17:30', 'Mi', '17:31', '19:00');
