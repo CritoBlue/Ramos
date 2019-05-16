@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Ramos.Negocios
 {
-    class Inscripcion
+    public class Inscripcion
     {
         #region Campos
         private string _idSeccion;
@@ -83,6 +83,29 @@ namespace Ramos.Negocios
             this.FechaInscripcion = Fecha_Inscripcion;
         }
         #endregion
-
+        #region Métodos
+        public bool Create()
+        {
+            try
+            {
+                Datos.inscripcion ins = new Datos.inscripcion()
+                {
+                    id_seccion = this.IdSeccion,
+                    id_ramo = this.IdRamo,
+                    id_carrera = this.IdCarrera,
+                    id_sede = this.IdSede,
+                    username_alum = this.AlumUsuario,
+                    fecha_inscripcion = this.FechaInscripcion
+                };
+                Conexion.Ramos.inscripcion.Add(ins);
+                Conexion.Ramos.SaveChanges();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+        #endregion
     }
 }

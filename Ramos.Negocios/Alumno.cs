@@ -139,5 +139,31 @@ namespace Ramos.Negocios
             this.IdCarrera = Id_Carrera;
         }
         #endregion
+        #region Métodos
+        public bool Login(String user, String pass)
+        {
+            try
+            {
+                Datos.alumno alu = (from auxlog in Conexion.Ramos.alumno
+                                where auxlog.username_alum == user
+                                select auxlog).First();
+                this.AlumUsername = alu.username_alum;
+                this.AlumContrasena = alu.password_alum;
+
+                if (this.AlumUsername == user && this.AlumContrasena == pass)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch
+            {
+                return false;
+            }
+        }
+        #endregion
     }
 }
